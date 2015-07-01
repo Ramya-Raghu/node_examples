@@ -5,7 +5,7 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
-app.all('/receive_sms/', function(request, response) {
+app.all('/reply_to_sms/', function(request, response) {
     // Sender's phone number
     var from_number = request.param('From');
     // Receiver's phone number - Plivo number
@@ -15,6 +15,20 @@ app.all('/receive_sms/', function(request, response) {
 
     console.log ('From : ' + from_number + ' To : ' + to_number + ' Text : ' + text);
 
+    var r = plivo.Response();
+
+    var params = {
+        'src' : to_number, // Sender's phone number
+        'dst' : from_number // Receiver's phone Number
+    }
+
+    r.addMessage('Thank you for your message', params);
+    console.log (r.toXML());
+
+    response.set({
+        'Content-Type': 'text/xml'
+    });
+    response.end(r.toXML());
 });
 
 app.listen(app.get('port'), function() {
@@ -25,4 +39,7 @@ app.listen(app.get('port'), function() {
 /*
 Sample Output
 From : 1111111111 To : 2222222222 Text : Hello
+<Response>
+    <Message src="2222222222" dst="1111111111">Thank you for your message</Message>
+</Response>
 */

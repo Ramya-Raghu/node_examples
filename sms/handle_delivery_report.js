@@ -1,4 +1,4 @@
-var plivo = require('plivo-node');
+var plivo = require('plivo');
 var express = require('express');
 var app = express();
 

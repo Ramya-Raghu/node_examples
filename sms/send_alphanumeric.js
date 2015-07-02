@@ -1,4 +1,4 @@
-var plivo = require('plivo-node');
+var plivo = require('plivo');
 var p = plivo.RestAPI({
   authId: 'Your AUTH_ID',
   authToken: 'Your AUTH_TOKEN'

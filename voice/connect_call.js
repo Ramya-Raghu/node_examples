@@ -5,6 +5,8 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
+// Generate a Dial XML with the details of the number to call
+
 app.all('/connect_call/', function(request, response) {
     var r = plivo.Response();
    

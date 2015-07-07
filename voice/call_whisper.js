@@ -9,8 +9,9 @@ app.all('/call_whisper/', function(request, response) {
     var r = plivo.Response();
 
     var params = {
-        'confirmSound' : "https://intense-brook-8241.herokuapp.com/confirm_sound/",
-        'confirmKey' : "5"
+        'confirmSound' : "https://intense-brook-8241.herokuapp.com/confirm_sound/", // A remote URL fetched with POST HTTP request which must return an 
+                                                                                    // XML response with Play, Wait and/or Speak elements only.
+        'confirmKey' : "5" // The digit to be pressed by the called party to accept the call.
     };
     var d = r.addDial(params);
     d.addNumber("1111111111");

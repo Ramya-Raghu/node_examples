@@ -5,6 +5,10 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
+// Example for DTMF XML
+// The DTMF element is used to send digits on a live call. 
+// This will usually be used to automate the process of navigating through an external phone tree (IVR).
+
 app.all('/dtmf/', function(request, response) {
     var r = plivo.Response();
 

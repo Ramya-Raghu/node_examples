@@ -5,16 +5,12 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
-// Simultaneous dialing is useful when there are SIP users and numbers that you want to dial. 
-// The first call that connects will cancel all other tries.
+// Generate a Play XML with the details of audio file to play during the call
 
-app.all('/call_hunting/', function(request, response) {
+app.all('/play/', function(request, response) {
     var r = plivo.Response();
 
-    var d = r.addDial();
-    d.addUser("sip:abcd1234@phone.plivo.com");
-    d.addNumber("2222222222");
-    d.addNumber("3333333333");
+    r.addPlay("https://s3.amazonaws.com/plivocloud/Trumpet.mp3");
     console.log (r.toXML());
 
     response.set({
@@ -32,10 +28,6 @@ app.listen(app.get('port'), function() {
 /*
 Sample Output
 <Response>
-    <Dial>
-        <User>sip:abcd1234@phone.plivo.com</User>
-        <Number>2222222222</Number>
-        <Number>3333333333</Number>
-    </Dial>
+    <Play>https://s3.amazonaws.com/plivocloud/Trumpet.mp3</Play>
 </Response>
 */

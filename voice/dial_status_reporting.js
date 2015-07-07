@@ -5,12 +5,14 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
+// Generate Dial XML
+
 app.all('/dial/', function(request, response) {
     var r = plivo.Response();
 
     var params = {
-        'action' : "https://intense-brook-8241.herokuapp.com/dial_status/",
-        'method' : "GET"
+        'action' : "https://intense-brook-8241.herokuapp.com/dial_status/", // Redirect to this URL after leaving Dial. 
+        'method' : "GET" // Submit to action URL using GET or POST.
     };
    
     r.addSpeak("Connecting your call..");
@@ -24,6 +26,8 @@ app.all('/dial/', function(request, response) {
     response.end(r.toXML());
 
 });
+
+// After completion of the call, Plivo will report back the status to the action URL in the Dial XML.
 
 app.all('/dial_status/', function(request, response) {
     

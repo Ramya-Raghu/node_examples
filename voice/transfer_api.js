@@ -5,6 +5,9 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
+// When the call is answered, a text is played which prompts the user to press 1 to transfer the call.
+// Once the digit is pressed, the transfer API request is made and the call is transfered to another number.
+
 app.all('/transfer_api/', function(request, response) {
     var r = plivo.Response();
 
@@ -34,6 +37,8 @@ app.all('/transfer_api/', function(request, response) {
     response.end(r.toXML());
 
 });
+
+// The Transfer API is invoked by the Get Digits action URL
 
 app.all('/transfer_action/', function(request, response) {
     var r = plivo.Response();

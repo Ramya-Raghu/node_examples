@@ -105,7 +105,7 @@ API Response:
 // Modify application linked to a number
 var params = { 
     'number' : '12106706640', // Number that has to be modified
-    'app_id' : '16638156474000802' # The application id of the application that is to be linked
+    'app_id' : '16638156474000802' // The application id of the application that is to be linked
 };
 
 p.edit_number(params, function (status, response) {
@@ -117,6 +117,21 @@ p.edit_number(params, function (status, response) {
 Sample Output
 Status:  202
 API Response:
- { api_id: '0e0790fa-6063-11e5-9059-22000ac51d70',
+ { api_id: 'e008cf6a-6063-11e5-9968-22000abfb1f6',
   message: 'changed' }
+*/
+
+// Unrent a number
+var params = { 
+    'number' : '12106706640', // Number that has to be unrented
+};
+
+p.unrent_number(params, function (status, response) {
+    console.log('Status: ', status);
+    console.log('API Response:\n', response);
+});
+
+/*
+Sample Output
+Status:  204
 */

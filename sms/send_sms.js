@@ -28,4 +28,9 @@ API Response:
  { api_id: 'b91b8736-134b-11e5-b0d7-22000ac520cd',
   message: 'message(s) queued',
   message_uuid: [ '138ee55f-9efb-4fc3-8ad7-4d71219bf56c' ] }
+
+Message UUID:
+ [ '138ee55f-9efb-4fc3-8ad7-4d71219bf56c' ]
+Api ID:
+ b91b8736-134b-11e5-b0d7-22000ac520cd
 */

@@ -11,6 +11,8 @@ var params = {
 p.get_message(params, function (status, response) {
     console.log('Status: ', status);
     console.log('API Response:\n', response);
+    console.log('Units:', response['units']);
+    console.log('Status:', response['message_state']);
 });
 
 /* 
@@ -30,4 +32,6 @@ API Response:
   total_amount: '0.00650',
   total_rate: '0.00650',
   units: 1 }
+Units: 1
+Status: delivered
 */

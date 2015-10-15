@@ -53,8 +53,8 @@ app.all('/transfer_action/', function(request, response) {
     console.log ("Call UUID : " + call_uuid);
     console.log ("Digit pressed : " + digit);
 
-    var auth_id = "MAYMFHYZJKMJG0NJG4OG";
-    var auth_token = "ZDZlNzI1ZDVkNDkzYWIxMzk5NjU1ODkzZWYyZmEx";
+    var auth_id = "Your AUTH_ID";
+    var auth_token = "Your AUTH_TOKEN";
 
     var p = plivo.RestAPI(auth_id,auth_token);
 

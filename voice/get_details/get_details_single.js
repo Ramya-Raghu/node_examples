@@ -28,7 +28,7 @@ API Response:
   end_time: '2014-12-12 22:09:02+05:30',
   from_number: null,
   parent_call_uuid: null,
-  resource_uri: '/v1/Account/MAYMFHYZJKMJG0NJG4OG/Call/55309cee-821d-11e4-9a73-498d468c930b/',
+  resource_uri: '/v1/Account/XXXXXXXXXXXXXXX/Call/55309cee-821d-11e4-9a73-498d468c930b/',
   to_number: '919176616491',
   total_amount: '0.00000',
   total_rate: '0.00000' }

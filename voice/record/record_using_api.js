@@ -19,6 +19,10 @@ app.all('/record_api/', function(request, response) {
     var getdigits = r.addGetDigits(params);
     getdigits.addSpeak("Press 1 to record this call");
 
+    // Time to wait in seconds
+    params = {'length': "30"};
+    response.addWait(params);
+
     console.log (r.toXML());
 
     response.set({
